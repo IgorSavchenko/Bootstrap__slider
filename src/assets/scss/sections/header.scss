@@ -1,0 +1,93 @@
+.header {
+
+  .row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include tablet-min {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    @include tablet-landscape-min {
+      flex-direction: row;
+      justify-content: flex-start;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+    &--right {
+      justify-content: flex-end;
+    }
+  }
+
+  &-logo {
+    font-size: 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.30em;
+    color: $color-black;
+    transition: color 0.3s;
+    @include tablet-landscape-min {
+      margin-right: 25px;
+    }
+    &:hover {
+      text-decoration: none;
+      color: $color-orange;
+    }
+  }
+
+  &-title {
+    font-size: 13px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: $color-black;
+  }
+
+  &-phone {
+    text-decoration: none;
+    font-size: 35px;
+    font-weight: 700;
+    color: $color-black;
+    transition: color 0.3s;
+    @include tablet-landscape-min {
+      margin-right: 18px;
+    }
+    &:hover {
+      text-decoration: none;
+      color: $color-orange;
+    }
+  }
+
+  &-btn {
+    width: 130px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    color: $color-white;
+    background-color: $color-orange;
+    background-image: linear-gradient(to top, #ff4f58, #fd7048);
+    background-size: center center;
+    border-radius: 4px;
+    transition: all 0.3s;
+    &:hover {
+      text-decoration: none;
+      color: $color-black;
+      background-size: 100% 100%;
+      background-image: linear-gradient(to left, #fd7048, #ff4f58);
+    }
+  }
+
+}
