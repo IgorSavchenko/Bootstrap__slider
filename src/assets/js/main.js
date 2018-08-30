@@ -1,37 +1,36 @@
 $(window).on("load", function(){
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
   // open burger menu
-  $(".burger").click(function(){
-	   $(this).toggleClass("active");
-     $(".navigation__menu").toggleClass("active");
-	});
+    $(".burger").click(function(){
+  	   $(this).toggleClass("active");
+       $(".nav").toggleClass("active");
+  	});
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   //navigation menu links
   $(".carousel-nav a").click(function(){
     $(".carousel-nav a").removeClass("active");
-	   $(this).toggleClass("active");
+    $(".burger").removeClass("active");
+    $(".nav").removeClass("active");
+    $(this).toggleClass("active");
 	});
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   // initialize carousel manually
   $('.carousel').carousel();
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
   // carousel content changing
   $('.carousel').on( 'slid.bs.carousel' , function() {
-    if ( $('.item--1').hasClass('active') ) {
-      $('.carousel-subtitle').text('Для зала');
-      $('.carousel-price span').text('50');
-    };
-    if ( $('.item--2').hasClass('active') ) {
-      $('.carousel-subtitle').text('Для детской');
-      $('.carousel-price span').text('60');
-    };
-    if ( $('.item--3').hasClass('active') ) {
-      $('.carousel-subtitle').text('Для кухни');
-      $('.carousel-price span').text('30');
-    };
-    if ( $('.item--4').hasClass('active') ) {
-      $('.carousel-subtitle').text('Для спальни');
-      $('.carousel-price span').text('40');
-    };
+      $('.carousel-subtitle').text($('.item.active h2').html());
+      $('.carousel-price span').text($('.item.active p').html());
+      $('.carousel-description').text($('.item.active span').html());
   });
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 });
